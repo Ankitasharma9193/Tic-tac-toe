@@ -32,14 +32,13 @@ nav ul{
     font-family: 'Roboto', 'sans-serif';
     padding: 0 30px;
     position: relative;
-
 }
 
 .line{
-    width: 30vw;
     height: 3px;
     background-color: black;
     position: absolute; 
+    transition: width 1s ease-in-out;
 }
 
 .box{
@@ -48,10 +47,12 @@ nav ul{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 1s  ease-in-out;
 }
 
 .box:hover{
     background-color: rgb(241, 155, 241);
+    transform: scale(1.2);
 }
 
 .gameinfo{
@@ -70,6 +71,7 @@ nav ul{
 
 .resetButton button:hover{
     background-color: aliceblue;
+    transform: scale(2);
 }
 
 .imageClass img{
@@ -99,6 +101,12 @@ nav ul{
         margin-top: 3vh;
         display: flex;
         gap: 4vh;
+    }
+    .container{
+        position: relative;
+    }
+    .line{
+        position: absolute;
     }
     
   }
