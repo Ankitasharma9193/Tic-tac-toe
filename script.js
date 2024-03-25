@@ -5,7 +5,7 @@ let gameoverAudio = new Audio('gameover.mp3');
 
 let turn = 'X';
 
-let winningCandidate = false
+let isGameOver = false
 
 const changeTurn = (turn) => {
     return turn === 'X' ? '0' : 'X';
@@ -28,8 +28,10 @@ const checkWin = () => {
     if(boxtext[win[0]].innerText !== '' 
         && boxtext[win[0]].innerText === boxtext[win[1]].innerText
         && boxtext[win[1]].innerText === boxtext[win[2]].innerText){
-            winningCandidate = true;
-            document.querySelector('.turnInfo').innerText = `Player ${boxtext[win[0]].innerText} won!`
+            isGameOver = true;
+            document.querySelector('.turnInfo').innerText = `Player ${boxtext[win[0]].innerText} won!`;
+            console.log(document.querySelector('.imageClass'));
+            document.querySelector('.imageClass').getElementsByTagName('img')[0].style.width = '200px';
         }
   })
 };
@@ -46,9 +48,24 @@ Array.from(boxes).forEach((eachbox) => {
             // turnAudio.play();
             checkWin();
             console.log(document.getElementsByClassName('gameinfo'))
-            if(winningCandidate == false){
+            if(isGameOver === false){ // if the game running only then this should be visible
              document.getElementsByClassName('turnInfo')[0].innerText = 'Your Turn: ' + turn;
             }
         }
     })
+});
+
+// for reset button
+let resetButton = document.getElementsByClassName("resetButton")[0];
+console.log(resetButton);
+resetButton.addEventListener('click', () => {
+    let boxtext = document.getElementsByClassName( "boxtext" );
+    Array.from(boxtext).forEach((item) => {
+        if(item.innerText !== "") item.innerText = "";
+    } )
+    isGameOver = false; // since we reset
+    turn = 'X';
+    document.getElementsByClassName('turnInfo')[0].innerText = 'Your Turn: ' + turn; // the text should be  X's turn again for as was initially
+    document.querySelector('.imageClass').getElementsByTagName('img')[0].style.width = '0px'; // the width of the gif should be 0 again as was initially
 })
+

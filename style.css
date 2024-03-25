@@ -3,20 +3,22 @@
     padding: 0;
 }
 nav{
-    background-color: rgb(111, 7, 111);
+    background-color: #2b3540;
     color: white;
     height: 5vh;
     font-size: 20px;
     display: flex;
     align-items: center;
+    text-align: center;
     font-family: 'Roboto', 'sans-serif';
 }
 nav ul{
     list-style-type: none;
+    padding-left: 5vw;
 }
 
 .gamecontainer{
-    background-color: plum;
+    background: linear-gradient(to right, #8e2de2, #4a00e0);
     display: flex;
     justify-content: center;
     margin: 5vw;
@@ -29,7 +31,15 @@ nav ul{
     grid-template-columns: repeat(3, 10vh);
     font-family: 'Roboto', 'sans-serif';
     padding: 0 30px;
+    position: relative;
 
+}
+
+.line{
+    width: 30vw;
+    height: 3px;
+    background-color: black;
+    position: absolute; 
 }
 
 .box{
@@ -47,6 +57,24 @@ nav ul{
 .gameinfo{
     padding: 0 30px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.resetButton button{
+    color: blue;
+    height: 3rem;
+    width: 6rem;
+    border-radius: 20%;
+}
+
+.resetButton button:hover{
+    background-color: aliceblue;
+}
+
+.imageClass img{
+    width: 0px;
+    transition: width 1s ease-in-out;
 }
 
 
@@ -62,3 +90,15 @@ nav ul{
 .bb-0{
     border-bottom: 0;
 }
+
+@media only screen and (max-width: 600px) {
+    .gamecontainer {
+        flex-wrap: wrap;
+    }
+    .gameinfo{
+        margin-top: 3vh;
+        display: flex;
+        gap: 4vh;
+    }
+    
+  }
