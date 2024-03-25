@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+:root{
+   --transform-way: all 1s ease-in-out;
+}
 nav{
     background-color: #2b3540;
     color: white;
@@ -38,11 +41,11 @@ nav ul{
     height: 3px;
     background-color: black;
     position: absolute; 
-    transition: width 1s ease-in-out;
+    transition: var(--transform-way);
 }
 
 .box{
-    border: 2px solid purple;
+    border: 2px solid white;
     font-size: 3vw;
     display: flex;
     justify-content: center;
@@ -80,7 +83,27 @@ nav ul{
 }
 
 
-.br-0{
+.box:nth-child(2),
+.box:nth-child(3),
+.box:nth-child(4){
+    border-top:none;
+}
+
+.box:nth-child(3n+2){
+    border-left: none;
+}
+
+.box:nth-child(3n+4){
+    border-right: none;
+}
+
+.box:nth-last-child(1),
+.box:nth-last-child(2),
+.box:nth-last-child(3){
+    border-bottom: none;
+}
+
+/* .br-0{
     border-right: 0;
 }
 .bl-0{
@@ -91,7 +114,7 @@ nav ul{
 }
 .bb-0{
     border-bottom: 0;
-}
+} */
 
 @media only screen and (max-width: 600px) {
     .gamecontainer {
